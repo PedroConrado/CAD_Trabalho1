@@ -61,9 +61,14 @@ int main(int argc, char *argv[]) {
         srand(seed); 
         for(int i = 0; i < N*N; i++){
             x[i] = rand() % (int)MAX_COORD;
+        }
+        for(int i = 0; i < N*N; i++){
             y[i] = rand() % (int)MAX_COORD;
+        }
+        for(int i = 0; i < N*N; i++){
             z[i] = rand() % (int)MAX_COORD;
         }
+        
         for (int i = 1; i < size; i++){
             MPI_Send(&(x[0]), N*N, MPI_INT, i, 1, MPI_COMM_WORLD);
             MPI_Send(&(y[0]), N*N, MPI_INT, i, 1, MPI_COMM_WORLD);
